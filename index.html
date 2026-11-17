@@ -159,7 +159,7 @@ footer{color:var(--muted)}
   <main>
     <section id="inicio" class="hero">
       <h1>Jade Cavalhieri</h1>
-      <p class="lede">Planejadora territorial e analista de geoprocessamento.</p>
+      <p class="lede">Integração da informação aplicada ao planejamento territorial.</p>
     </section>
 
     <section id="sobre">
@@ -168,7 +168,7 @@ footer{color:var(--muted)}
         <div class="body">
           <p> Sou planejadora territorial formada pela Universidade Federal do ABC. O Planejamento Territorial é uma área das ciências sociais aplicadas que articula elementos da economia, da geografia, da história, da gestão ambiental, do urbanismo, das políticas públicas, para entender e transformar os territórios. Ao longo do curso, foi crescendo meu interesse pela área de dados e análise espacial e as possibilidades que essas ferramentas oferecem.</p>
            <p>Agora já faz 8 anos que trabalho na área de dados e análise espacial, desde o meu primeiro estágio, em 2019, onde comecei engatinhando no GIS em uma consultoria de inteligência de mercado voltada para o agronegócio e agroenergia. Desde lá, já passei por start-ups, empresas do mercado de carbono, organizações não governamentais, e me envolvi em outros tantos projetos, e incorporei a programação ao meu trabalho diário (sobretudo python).</p>
-          <p> Se há uma habilidade que eu desenvolvi nessa trajetória, seria a de integração entre diferentes áreas do conhecimento, o que me faz trabalhar com muita alegria em projetos interdisciplinares.</p>
+          <p> Se há uma habilidade que eu desenvolvi nessa trajetória, seria a de integração entre diferentes áreas do conhecimento, o que me faz trabalhar com muita alegria em projetos interdisciplinares — agora, já de um outro ponto de vista, coordenando-os.</p>
          <p> Meus interesses de pesquisa incluem projetos de impacto socioambiental, desenvolvimento territorial sustentável, mudanças climáticas, transição ecológica justa, visualização de dados para divulgação científica, entre outros.</p>
         </div>
       </div>
@@ -200,10 +200,20 @@ footer{color:var(--muted)}
         <button type="button" data-f="todos" aria-pressed="true">Todos</button>
         <button type="button" data-f="carbono" aria-pressed="false">Clima e carbono</button>
         <button type="button" data-f="dados" aria-pressed="false">Dados e automação</button>
+        <button type="button" data-f="gestao" aria-pressed="false">Gestão e liderança</button>
         <button type="button" data-f="monit" aria-pressed="false">Monitoramento</button>
         <button type="button" data-f="pesquisa" aria-pressed="false">Pesquisa</button>
       </div>
       <ul class="projects" id="projects">
+        <li class="proj" data-cat="dados gestao">
+          <div class="meta mono"><b>2026–</b><span>Detran-SP</span><span>Diretoria de Segurança Viária</span><span>Observatório de Segurança no Trânsito</span></div>
+          <div class="txt">
+            <h3>Gestão pública: Chefe de Integração da Informação na Diretoria de Segurança Viária</h3>
+            <p>Atualmente, trabalho com gestão pública na Diretoria de Segurança Viária do Detran-SP, no cargo de Chefe de Serviço de Integração da Informação, no âmbito da Divisão de Estatística. Entre as minhas atribuições estão a liderança técnica na integração das bases de dados de sinistros de trânsito, o apoio à coordenação de projetos estratégicos do Observatório, a organização, o diálogo e a articulação entre diferentes setores e entidades, a automatização de fluxos de trabalho, a produção de indicadores e diagnósticos territoriais para a política de segurança viária e o suporte à manutenção do Infosiga.</p>
+            <div class="tags"><span>Gestão pública</span><span>Integração de dados</span><span>Automação</span><span>Indicadores</span><span>Análise espacial</span><span>Articulação institucional</span></div>
+            <div class="links mono"><a href="https://infosiga.detran.sp.gov.br/" target="_blank" rel="noopener">Infosiga ↗</a></div>
+          </div>
+        </li>
         <li class="proj" data-cat="carbono">
           <div class="meta mono"><b>2023–2026</b><span>Future Climate Group</span><span>Amazonas · Rondônia</span></div>
           <div class="txt">
@@ -251,14 +261,6 @@ footer{color:var(--muted)}
             <h3>Scrollymaps e painéis interativos</h3>
             <p>Mapas narrativos que avançam com a rolagem da página e painéis para apresentar resultados a lideranças e clientes, feitos com Mapbox, HTML, TypeScript, Power BI e Streamlit.</p>
             <div class="tags"><span>Mapbox</span><span>Power BI</span><span>Streamlit</span><span>Visualização</span></div>
-          </div>
-        </li>
-        <li class="proj" data-cat="dados">
-          <div class="meta mono"><b>2026–</b><span>Detran-SP</span><span>Observatório de Segurança no Trânsito</span></div>
-          <div class="txt">
-            <h3>Integração de dados de sinistros de trânsito</h3>
-            <p>Na Divisão de Estatística de Trânsito, coordeno a integração e análise de bases, a automação de rotinas de processamento e a produção de indicadores e diagnósticos territoriais para a política de segurança viária.</p>
-            <div class="tags"><span>Setor público</span><span>Indicadores</span><span>Análise espacial</span></div>
           </div>
         </li>
         <li class="proj" data-cat="monit">
@@ -439,7 +441,7 @@ footer{color:var(--muted)}
   // filtros dos projetos
   const btns=[...document.querySelectorAll('.filters button')], items=[...document.querySelectorAll('#projects .proj')];
   btns.forEach(b=>b.addEventListener('click',()=>{const cat=b.dataset.f;btns.forEach(o=>o.setAttribute('aria-pressed',o===b?'true':'false'));
-    items.forEach(it=>it.hidden=!(cat==='todos'||it.dataset.cat===cat))}));
+    items.forEach(it=>it.hidden=!(cat==='todos'||it.dataset.cat.split(' ').includes(cat)))}));
 
   // copiar e-mail
   const copy=document.getElementById('copy');
